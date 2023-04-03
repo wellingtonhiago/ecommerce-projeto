@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja Virtual de Livros - Home</title>
+</head>
+<body>
+<header>
+    <h1>Loja Virtual de Livros</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Livros</a></li>
+            <li><a href="#">Autores</a></li>
+            <li><a href="#">Categorias</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Novos Lançamentos</h2>
+    <ul>
+        <li th:each="book : ${books}">
+            <a th:href="@{/book/{id}(id=${book.id})}">
+                <img th:src="${book.image}" alt="Capa do livro">
+                <h3 th:text="${book.title}"></h3>
+                <p th:text="${book.author}"></p>
+                <p th:text="${book.price}"></p>
+            </a>
+        </li>
+    </ul>
+</main>
+
+<footer>
+    <p>&copy; 2023 Loja Virtual de Livros</p>
+</footer>
+</body>
+</html>
